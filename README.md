@@ -146,13 +146,15 @@ sudo pacman -Syyu
 
 ```bash
 sudo pacman-mirrors -c China
+```
+```bash
 sudo pacman -Syyu
 ```
 * **好处**：使用中国镜像源，下载速度更快。
 
 ### 3. 输入法安装
 
-* **安装智能拼音**：
+* **安装rime**：
 
 ```bash
 sudo pacman -S ibus-rime
@@ -169,8 +171,14 @@ sudo pacman -S ibus-rime
 
 ```bash
 sudo pacman -S ruby
+```
+```bash
 git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch latest
+```
+```bash
 cd rime-auto-deploy
+```
+```bash
 ./installer.rb
 ```
 * **提示**：雾凇适合需要高级输入法功能的用户。
@@ -198,8 +206,10 @@ sudo pacman -S gnome-software-plugin-flatpak
 * **安装 Flatpak 管理工具**：
 
 ```bash
-flatpak install flathub io.github.flattool.Warehouse
-flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub io.github.flattool.Warehouse ## 管理器
+```
+```bash
+flatpak install flathub com.github.tchx84.Flatseal ## 权限管理
 ```
 * **建议**：新手优先使用 Flatpak 安装软件，依赖管理更简单。
 
@@ -207,6 +217,8 @@ flatpak install flathub com.github.tchx84.Flatseal
 
 ```bash
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" ## 开启分数缩放
+```
+```bash
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']" ## 解决高分屏字体模糊的问题
 ```
 ### 6.dock点击最小化
@@ -225,6 +237,8 @@ yay -S howdy-beta-git ## 安装测试版本
 
 ```bash
 sudo howdy config
+```
+```bash
 device_path = /dev/video2 ## 这里需要找到自己红外线摄像头的编号
 ```
 * 添加面部数据
@@ -255,22 +269,22 @@ sudo nano /etc/pam.d/gdm-password ## 这里只添加了gdm的pam验证，root和
 ```bash
 yay -S wps-office-365
 ```
-1. **Xournal++（手写笔记）**
+2. **Xournal++（手写笔记）**
 
 ```bash
 yay -S xournalpp
 ```
-1. **Apostrophe（Markdown 编辑器）**
+3. **Apostrophe（Markdown 编辑器）**
 
 ```bash
 flatpak install flathub org.gnome.gitlab.somas.Apostrophe
 ```
-1. **Evolution（邮件/日历管理）**
+4. **Evolution（邮件/日历管理）**
 
 ```bash
 flatpak install flathub org.gnome.Evolution
 ```
-1. **Endeavour（待办事项）**
+5. **Endeavour（待办事项）**
 
 ```bash
 flatpak install flathub org.gnome.Todo
@@ -282,22 +296,22 @@ flatpak install flathub org.gnome.Todo
 ```bash
 yay -S clash-verge-rev-bin
 ```
-1. **Google Chrome（浏览器）**
+2. **Google Chrome（浏览器）**
 
 ```bash
 flatpak install flathub com.google.Chrome
 ```
-1. **Materialgram（Telegram 客户端）**
+3. **Materialgram（Telegram 客户端）**
 
 ```bash
 flatpak install flathub io.github.kukuruzka165.materialgram
 ```
-1. **WeChat（微信）**
+4. **WeChat（微信）**
 
 ```bash
 flatpak install flathub com.tencent.WeChat
 ```
-1. **WeWork（企业微信）**
+5. **WeWork（企业微信）**
 
    1. **步骤 1**：安装 Bottles (Wine 容器管理器)
 
@@ -316,7 +330,7 @@ flatpak install flathub com.usebottles.bottles
 
    * 使用此配置好的 Bottle 来安装和运行企业微信 `.exe` 安装包。
 
-1. **FileZilla（FTP 客户端）**
+6. **FileZilla（FTP 客户端）**
 
 ```bash
 yay -S filezilla
@@ -328,22 +342,22 @@ yay -S filezilla
 ```bash
 yay -S osdlyrics
 ```
-1. **Spotify（音乐流媒体）**
+2. **Spotify（音乐流媒体）**
 
 ```bash
 flatpak install flathub com.spotify.Client
 ```
-1. **无暇 (G4Music)（简洁音乐播放器）**
+3. **无暇 (G4Music)（简洁音乐播放器）**
 
 ```bash
 flatpak install flathub com.github.neithern.g4music
 ```
-1. **Steam（游戏平台）**
+4. **Steam（游戏平台）**
 
 ```bash
 yay -S steam
 ```
-1. **Play Timer (MPRIS Timer)（音乐计时器）**
+5. **Play Timer (MPRIS Timer)（音乐计时器）**
 
 ```bash
 flatpak install flathub io.github.efogdev.mpris-timer
@@ -355,27 +369,27 @@ flatpak install flathub io.github.efogdev.mpris-timer
 ```bash
 yay -S timeshift
 ```
-1. **Resources（资源监控）**
+2. **Resources（资源监控）**
 
 ```bash
 flatpak install flathub net.nokyan.Resources
 ```
-1. **GDM Settings（显示管理器配置）**
+3. **GDM Settings（显示管理器配置）**
 
 ```bash
 flatpak install flathub io.github.realmazharhussain.GdmSettings
 ```
-1. **扩展管理器 (Extension Manager)（GNOME 扩展管理）**
+4. **扩展管理器 (Extension Manager)（GNOME 扩展管理）**
 
 ```bash
 flatpak install flathub com.mattjakeman.ExtensionManager
 ```
-1. **Ignition（启动项管理）**
+5. **Ignition（启动项管理）**
 
 ```bash
 flatpak install flathub io.github.flattool.Ignition
 ```
-1. **BleachBit（系统垃圾清理）**
+6. **BleachBit（系统垃圾清理）**
 
 ```bash
 flatpak install flathub org.bleachbit.BleachBit
@@ -387,17 +401,17 @@ flatpak install flathub org.bleachbit.BleachBit
 ```bash
 flatpak install flathub com.github.wwmm.easyeffects
 ```
-1. **Shotwell（照片管理）**
+2. **Shotwell（照片管理）**
 
 ```bash
 flatpak install flathub org.gnome.Shotwell
 ```
-1. **图像查看器 (Loupe)（图片浏览）**
+3. **图像查看器 (Loupe)（图片浏览）**
 
 ```bash
 flatpak install flathub org.gnome.Loupe
 ```
-1. **Transmission（轻量级 BitTorrent 下载客户端）**
+4. **Transmission（轻量级 BitTorrent 下载客户端）**
 
 ```bash
 yay -S transmission-gtk
@@ -409,19 +423,17 @@ yay -S transmission-gtk
 ```bash
 flatpak install flathub com.jeffser.Alpaca
 ```
-1. **GeoGebra（数学工具）**
+2. **GeoGebra（数学工具）**
 
 ```bash
 flatpak install flathub org.geogebra.GeoGebra
 ```
 ### 其他实用工具
 
-1. **Pins（快捷访问工具）**
+1. **Pins（软件图标编辑）**
 
 ```bash
 flatpak install flathub io.github.fabrialberio.pinapp
-
----
 ```
 
 
