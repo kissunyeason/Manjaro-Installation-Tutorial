@@ -147,10 +147,32 @@ sudo pacman -Syyu
 ```bash
 sudo pacman-mirrors -c China
 ```
-```bash
-sudo pacman -Syyu
-```
 * **好处**：使用中国镜像源，下载速度更快。
+```bash
+sudo pacman -Syyu ## 更新系统
+```
+* **添加Arch Linux源**：
+```bash
+sudo vim /etc/pacman.d/mirrorlist
+```
+添加
+```bash
+# 清华大学
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+## 163
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+## aliyun
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+## 中科大
+Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+##  清华大学
+Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
+## 上海交通大学
+Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/$repo/$arch
+## 浙江大学
+Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
+```
+
 
 ### 3. 输入法安装
 
@@ -255,6 +277,10 @@ sudo howdy test ## 测试是否能识别
 
 ```bash
 sudo nano /etc/pam.d/gdm-password ## 这里只添加了gdm的pam验证，root和其余的可以自己添加
+```
+添加
+```bash
+auth sufficient /lib/security/pam_howdy.so
 ```
 ##  
 
