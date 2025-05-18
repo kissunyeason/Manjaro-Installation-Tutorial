@@ -488,4 +488,17 @@ flatpak install flathub io.github.fabrialberio.pinapp
    * **地址**：[Flathub](https://flathub.org/zh-Hans)
 
 ##    - **说明**：提供丰富的 Flatpak 软件资源。
+### 4.Proton运行Windows游戏
+* **安装ProtonUp-Qt**：
+```bash
+flatpak install flathub net.davidotek.pupgui2
+```
+* **安装vulkan-radeon**
 
+```bash
+sudo pacman -S vulkan-radeon lib32-vulkan-radeon vulkan-tools
+```
+* **可能还需要安装**
+```bash
+sudo pacman -S lib32-libgl lib32-libpulse vulkan-icd-loader lib32-vulkan-icd-loader mesa lib32-mesa
+```
