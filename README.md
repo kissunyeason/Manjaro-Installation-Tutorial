@@ -300,6 +300,93 @@ yay -S wps-office-365
 ```bash
 yay -S xournalpp
 ```
+**安装核心的 TeX Live 组件和 XeTeX 支持**：
+```bash
+sudo pacman -S texlive-bin texlive-core texlive-xetex ## 这些包提供了 LaTeX 运行的基础和 `xelatex` 编译器。
+```
+**安装基础和推荐的 LaTeX 包及字体**：
+```bash
+sudo pacman -S texlive-basic texlive-latex texlive-fontsrecommended
+```
+**安装 Xournal++ 模板所需的额外 LaTeX 包**：
+```bash
+sudo pacman -S texlive-latexextra
+```
+**安装中文支持相关的 TeX Live 包**：
+```bash
+sudo pacman -S texlive-langcjk texlive-ctex
+```
+**安装中文字体 (系统级别)**：
+```bash
+sudo pacman -S noto-fonts-cjk
+```
+**设置 LaTeX 生成命令**：
+ ```bash
+xelatex -halt-on-error -interaction=nonstopmode "{}"   ## 在xournal++的设置中输入
+```
+  **管理 LaTeX 模板文件**：
+```bash
+nano ~/.config/xournalpp/tex/ ## 创建模板
+```
+**内容如下**
+```yaml
+
+```
+% This template uses the scontents package, which is only available on relatively recent TeX distributions. In case it is not available on your system, use the legacy_template.tex
+\documentclass[varwidth=0.999\maxdimen, crop, border=5pt]{standalone}
+% The upper limit value of 'varwidth' can be referenced by \hsize.
+\newcommand*{\setTextWidthReference}{%
+  \setlength{\textwidth}{345.0pt}% Same value when you use 'varwidth=true'.
+  \setlength{\linewidth}{\textwidth}%
+  \setlength{\columnwidth}{\textwidth}%
+}
+
+% Packages
+\usepackage{amsmath} % <--- 必需：用于 \text{} 等命令
+\usepackage{amssymb}
+
+% for storing in memory verbatim content to be reused later
+\usepackage{scontents}
+
+% Blank formula checking
+\usepackage{ifthen}
+\newlength{\pheight}
+
+% Color support
+\usepackage{xcolor}
+\definecolor{xpp_font_color}{HTML}{%%XPP_TEXT_COLOR%%}
+
+%%%%% 中文支持 (xeCJK) %%%%%
+\usepackage{xeCJK} % <--- 必需：确保这一行存在
+% vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+% 重要：将下面的 "您选择的已安装中文字体名称" 替换为您在阶段一，步骤8中
+%       确认的、并且通过 test_chinese.tex 验证成功的那个中文字体的确切名称！
+%       例如："Noto Sans CJK SC" 或 "WenQuanYi Micro Hei" 等。
+%       确保字体名称完全正确，没有多余的空格或拼写错误。
+\setCJKmainfont{您选择的已安装中文字体名称} % <--- 【【【 将这里替换为您验证过的字体名 】】】
+% ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+% \setCJKsansfont{您选择的已安装中文字体名称} % (可选，如果需要指定无衬线中文字体)
+% \setCJKmonofont{您选择的已安装中文字体名称} % (可选，如果您需要指定等宽中文字体)
+%%%%% 中文支持结束 %%%%%
+
+% User input
+\begin{scontents}[store-env=preview]
+    \( 
+    \displaystyle
+    %%XPP_TOOL_INPUT%%
+    \)
+\end{scontents}
+
+\begin{document}
+  \setTextWidthReference
+  % Check if the formula is empty
+  \settoheight{\pheight}{\getstored[1]{preview}}%
+  \ifthenelse{\pheight=0}{\GenericError{}{xournalpp:blankformula}{}{}}
+
+  % Render the user input
+  \textcolor{xpp_font_color}{\getstored[1]{preview}}
+\end{document}
+```
 3. **Apostrophe（Markdown 编辑器）**
 
 ```bash
@@ -453,6 +540,11 @@ flatpak install flathub com.jeffser.Alpaca
 
 ```bash
 flatpak install flathub org.geogebra.GeoGebra
+```
+3. **Dialect**翻译
+```
+flatpak install flathub app.drey.Dialect
+```
 ```
 ### 其他实用工具
 
