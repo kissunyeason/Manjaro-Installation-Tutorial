@@ -329,9 +329,7 @@ xelatex -halt-on-error -interaction=nonstopmode "{}"   ## 在xournal++的设置�
 nano ~/.config/xournalpp/tex/ ## 创建模板
 ```
 **内容如下**
-```yaml
-
-```
+```tex
 % This template uses the scontents package, which is only available on relatively recent TeX distributions. In case it is not available on your system, use the legacy_template.tex
 \documentclass[varwidth=0.999\maxdimen, crop, border=5pt]{standalone}
 % The upper limit value of 'varwidth' can be referenced by \hsize.
@@ -356,18 +354,8 @@ nano ~/.config/xournalpp/tex/ ## 创建模板
 \usepackage{xcolor}
 \definecolor{xpp_font_color}{HTML}{%%XPP_TEXT_COLOR%%}
 
-%%%%% 中文支持 (xeCJK) %%%%%
-\usepackage{xeCJK} % <--- 必需：确保这一行存在
-% vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-% 重要：将下面的 "您选择的已安装中文字体名称" 替换为您在阶段一，步骤8中
-%       确认的、并且通过 test_chinese.tex 验证成功的那个中文字体的确切名称！
-%       例如："Noto Sans CJK SC" 或 "WenQuanYi Micro Hei" 等。
-%       确保字体名称完全正确，没有多余的空格或拼写错误。
-\setCJKmainfont{您选择的已安装中文字体名称} % <--- 【【【 将这里替换为您验证过的字体名 】】】
-% ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-% \setCJKsansfont{您选择的已安装中文字体名称} % (可选，如果需要指定无衬线中文字体)
-% \setCJKmonofont{您选择的已安装中文字体名称} % (可选，如果您需要指定等宽中文字体)
-%%%%% 中文支持结束 %%%%%
+\usepackage{xeCJK} 
+\setCJKmainfont{Noto Sans CJK SC} % <--- 【【【 将这里替换为您验证过的字体名 】】】
 
 % User input
 \begin{scontents}[store-env=preview]
