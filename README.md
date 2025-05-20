@@ -216,7 +216,11 @@ sudo pacman -S yay base-devel git
 
 ```bash
 sudo pacman -S flatpak
+```
+```bash
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+```bash
 flatpak update
 ```
 * **安装 Flatpak 插件**：
