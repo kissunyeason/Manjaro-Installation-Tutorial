@@ -537,7 +537,6 @@ flatpak install flathub org.geogebra.GeoGebra
 ```
 flatpak install flathub app.drey.Dialect
 ```
-```
 ### 其他实用工具
 
 1. **Pins（软件图标编辑）**
