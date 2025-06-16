@@ -410,6 +410,7 @@ flatpak install flathub com.google.Chrome
 
 ```bash
 flatpak install flathub io.github.kukuruzka165.materialgram
+flatpak override --user --env=QT_IM_MODULE=wayland io.github.kukuruzka165.materialgram ## ibus无候选词修复
 ```
 4. **WeChat（微信）**
 
